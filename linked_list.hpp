@@ -45,22 +45,12 @@ LinkedList<T>::LinkedList(const LinkedList<T>& other)
 {
     // create preHead node
     _preHead = new Node<T>();
-    // create pointer to our list tail
-    Node<T>* this_tail = _preHead;
-    // choose first node with data form other list
-    Node<T>* other_cur = other.getPreHead()->next;
-    // if data node in other list is not empty
-    while (other_cur)
+    // copy values
+    Node<T>* cur = other.getPreHead()->next;
+    while (cur)
     {
-        // make floating node (data node)
-        Node<T>* new_our = new Node<T>();
-        new_our->value = other_cur->value;
-        // plug in out list
-        this_tail->next = new_our;
-        // advance our list end
-        this_tail = new_our;
-        // advance their list current
-        other_cur = other_cur->next;
+        addElementToEnd(cur->value);
+        cur = cur->next;
     }
 }
 
@@ -71,26 +61,16 @@ LinkedList<T>& LinkedList<T>::operator=(const LinkedList<T>& other)
 {
     if (this == &other)
         return *this;
-
-    // create preHead node
-    _preHead = new Node<T>();
-    // create pointer to our list tail
-    Node<T>* this_tail = _preHead;
-    // choose first node with data form other list
-    Node<T>* other_cur = other.getPreHead()->next;
-    // if data node in other list is not empty
-    while (other_cur)
+    // clear this list, does not delete _preHead
+    deleteNodes(_preHead, getEndNode(_preHead));
+    // copy values
+    Node<T>* cur = other.getPreHead()->next;
+    while (cur)
     {
-        // make floating node (data node)
-        Node<T>* new_our = new Node<T>();
-        new_our->value = other_cur->value;
-        // plug in out list
-        this_tail->next = new_our;
-        // advance our list end
-        this_tail = new_our;
-        // advance their list current
-        other_cur = other_cur->next;
+        addElementToEnd(cur->value);
+        cur = cur->next;
     }
+    return *this;
 }
 
 
@@ -145,45 +125,55 @@ void LinkedList<T>::addElementToEnd(T& value)
 {
     Node<T>* tmp = new Node<T>();
     tmp->value = value;
-    // get last node
-    Node<T>* end_node = _preHead;
-    while (end_node->next)
-    {
-        end_node = end_node->next;
-    }
-    end_node->next = tmp;
+    Node<T>* end = getEndNode(_preHead);
+    end->next = tmp;
 }
 
 /// Удаляет все узлы в диапазоне \c pNodeBefore->next ... \с pNodeLast (включительно).
 template <class T>
 void LinkedList<T>::deleteNodes(Node<T>* pNodeBefore, Node<T>* pNodeLast)
 {
-    if (! pNodeBefore)
+    if (! pNodeBefore || ! pNodeLast)
         throw std::invalid_argument("Invalid pNodeBefore pointer");
-    Node<T>* cur = pNodeBefore->next;
-    while (cur != pNodeLast)
+    while (pNodeBefore->next != pNodeLast)
     {
         // if we travelled whole list, but did not find end node
-        if (! cur)
+        if (! pNodeBefore->next)
             throw std::invalid_argument("Invalid pNodeLast pointer");
-        Node<T>* tmp = cur->next;
-        delete cur;
-        cur = tmp;
+        deleteNextNode(pNodeBefore);
     }
-    Node<T>* tmp = cur->next;
-    pNodeBefore->next = tmp;
-    delete cur;
+    // only when they pNodeBefore->next == pNodeLast are equal
+    deleteNextNode(pNodeBefore);
+}
+
+/// Находит последний узел в списке.
+/// Реализовал Артем Абрамов БПИ151
+template <class T>
+Node<T>* LinkedList<T>::getEndNode(const Node<T>* node)
+{
+    Node<T>* end_node = node ? node : _preHead;
+    while (end_node->next)
+        end_node = end_node->next;
+    return end_node;
+}
+
+/// Отсоединяет узел из списка и возвращает ссылку на него
+/// Реализовал Абрамов Артем БПИ 151
+template <class T>
+Node<T>* LinkedList<T>::unlinkNextNode(Node<T>* pNodeBefore)
+{
+    if (! pNodeBefore || ! pNodeBefore->next)
+        throw std::invalid_argument("Unexpected nullptr");
+    Node<T>* tmp = pNodeBefore->next;
+    pNodeBefore->next = pNodeBefore->next->next;
+    return tmp;
 }
 
 /// Удаляет узел \c pNodeBefore->next.
 template <class T>
 void LinkedList<T>::deleteNextNode(Node<T>* pNodeBefore)
 {
-    if (! pNodeBefore || ! pNodeBefore->next)
-        throw std::invalid_argument("Unexpected nullptr");
-    Node<T>* tmp = pNodeBefore->next->next;
-    delete pNodeBefore->next;
-    pNodeBefore->next = tmp;
+    delete unlinkNextNode(pNodeBefore);
 }
 
 /// Перемещает узлы \c pNodeBefore->next ... \c pNodeLast другого списка в конец текущего списка. 
@@ -191,6 +181,7 @@ void LinkedList<T>::deleteNextNode(Node<T>* pNodeBefore)
 template <class T>
 void LinkedList<T>::moveNodesToEnd(Node<T>* pNodeBefore, Node<T>* pNodeLast)
 {
+    moveNodesAfter(getEndNode(_preHead), pNodeBefore, pNodeLast);
 }
 
 /// Перемещает узел pNodeBefore->next из другого списка в конец текущего списка. 
@@ -198,6 +189,7 @@ void LinkedList<T>::moveNodesToEnd(Node<T>* pNodeBefore, Node<T>* pNodeLast)
 template <class T>
 void LinkedList<T>::moveNodeToEnd(Node<T>* pNodeBefore)
 {
+    moveNodeAfter(getEndNode(_preHead), pNodeBefore);
 }
 
 /// Перемещает узлы \c pNodeBefore->next ... \c pNodeLast другого списка в текущий список
@@ -206,6 +198,20 @@ void LinkedList<T>::moveNodeToEnd(Node<T>* pNodeBefore)
 template <class T>
 void LinkedList<T>::moveNodesAfter(Node<T>* pNode, Node<T>* pNodeBefore, Node<T>* pNodeLast)
 {
+    // create pointer to our list tail
+    Node<T>* this_tail = pNode;
+    // choose first node form other list
+    Node<T>* other_cur = pNodeBefore;
+    // if data node in other list is not empty
+    while (other_cur->next != pNodeLast)
+    {
+        if (! other_cur->next)
+            throw std::invalid_argument("Unexpected nullptr");
+        moveNodeAfter(this_tail, other_cur);
+        this_tail = this_tail->next;
+    }
+    // need to do it one more time to move the pNodeLast
+    moveNodeAfter(this_tail, other_cur);
 }
 
 /// Перемещает узел pNodeBefore->next из другого списка в текущий список после узла pNode.
@@ -213,6 +219,13 @@ void LinkedList<T>::moveNodesAfter(Node<T>* pNode, Node<T>* pNodeBefore, Node<T>
 template <class T>
 void LinkedList<T>::moveNodeAfter(Node<T>* pNode, Node<T>* pNodeBefore)
 {
+    // unlink other node from other list
+    Node<T>* other_node = unlinkNextNode(pNodeBefore);
+    // remember the tail
+    Node<T>* our_tail = pNode->next;
+    // plug in to our list
+    pNode->next = other_node;
+    other_node->next = our_tail;
 }
 
 } // namespace xi
