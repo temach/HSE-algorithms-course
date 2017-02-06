@@ -39,9 +39,11 @@ LinkedList<T>::~LinkedList()
     delete cur;
 }
 
-// Copy constructor
+// Конструктор копирования.
+// Реализовал Артем Абрамов БПИ151
+// "other" can not be a "const" reference because we use getPreHead function which is not "const"
 template <class T>
-LinkedList<T>::LinkedList(const LinkedList<T>& other)
+LinkedList<T>::LinkedList(LinkedList<T>& other)
 {
     // create preHead node
     _preHead = new Node<T>();
@@ -55,9 +57,11 @@ LinkedList<T>::LinkedList(const LinkedList<T>& other)
 }
 
 
-// Copy assignemnt operator =
+// Оператор присваивания
+// Реализовал Артем Абрамов БПИ151
+// "other" can not be a "const" reference because we use getPreHead function which is not "const"
 template <class T>
-LinkedList<T>& LinkedList<T>::operator=(const LinkedList<T>& other)
+LinkedList<T>& LinkedList<T>::operator=(LinkedList<T>& other)
 {
     if (this == &other)
         return *this;
@@ -99,7 +103,7 @@ T& LinkedList<T>::operator[] (int i)
         cur_data = cur_data->next;
     }
     // we can guarantee that cur_data != nullptr
-    return *cur_data;
+    return cur_data->value;
 }
 
 
@@ -149,7 +153,7 @@ void LinkedList<T>::deleteNodes(Node<T>* pNodeBefore, Node<T>* pNodeLast)
 /// Находит последний узел в списке.
 /// Реализовал Артем Абрамов БПИ151
 template <class T>
-Node<T>* LinkedList<T>::getEndNode(const Node<T>* node)
+Node<T>* LinkedList<T>::getEndNode(Node<T>* node)
 {
     Node<T>* end_node = node ? node : _preHead;
     while (end_node->next)

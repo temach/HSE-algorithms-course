@@ -64,20 +64,22 @@ public:
      * @brief Конструктор копирования.
      * Реализовал Артем Абрамов БПИ151
      *
-     * @param other Другой экземпляр типа SafeArray<T>
+     * @param other Другой экземпляр типа SafeArray<T>. Не может быть "const" так 
+     *              как в функции на нем вызываеться метод getPreHead() который не "const"
      */
-    LinkedList(const LinkedList<T>& other);
+    LinkedList(LinkedList<T>& other);
 
 
     /**
      * @brief Оператор присваивания
      * Реализовал Артем Абрамов БПИ151
      *
-     * @param other Другой экземпляр типа SafeArray<T>
+     * @param other Другой экземпляр типа SafeArray<T>. Не может быть "const" так 
+     *              как в функции на нем вызываеться метод getPreHead() который не "const"
      *
      * @return Ссылку на rhs объект.
      */
-    LinkedList<T>& operator= (const LinkedList<T>& other);
+    LinkedList<T>& operator= (LinkedList<T>& other);
 
 
 public:
@@ -118,18 +120,16 @@ public:
     /// После перемещения из другого списка этот узел исключается.
     void moveNodeAfter(Node<T>* pNode, Node<T>* pNodeBefore);
 
-
-protected:
     /**
      * @brief Находит последний узел в списке.
      * Реализовал Артем Абрамов БПИ151
      *
      * @param node Опциональный параметр указывает на список по которому надо пройти.
-     *             Если равер nullptr, проход начинаеться с указателя _preHead.
+     *             Если равен nullptr, проход начинаеться с указателя _preHead.
      *
      * @return Указатель на последний узел в списке.
      */
-    Node<T>* getEndNode(const Node<T>* node = nullptr);
+    Node<T>* getEndNode(Node<T>* node = nullptr);
 
     /**
      * @brief Отсоединяет узел из списка и возвращает ссылку на него.
@@ -140,6 +140,9 @@ protected:
      * @return Указатель на узел который был вынут из списка.
      */
     Node<T>* unlinkNextNode(Node<T>* pNodeBefore);
+
+
+protected:
 
     /// Вспомогательный элемент — псевдонулевой элемент списка.
     /// Тип \c T должен поддерживать конструктор по умолчанию.

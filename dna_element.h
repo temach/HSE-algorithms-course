@@ -52,6 +52,13 @@ public:
 
 public:
 
+enum DNABase {
+    A = 'A'
+    , C = 'C'
+    , T = 'T'
+    , G = 'G'
+};
+
     /// Идентификатор элемента (a..z).
     std::string id;
     
@@ -60,15 +67,9 @@ public:
     int number;    
 
     /// Кислотное основание.
-    DNABase base;    
+    DNAElement::DNABase base;    
 
 
-enum DNABase {
-    A = 'A'
-    , C = 'C'
-    , T = 'T'
-    , G = 'G'
-}
 
 
 

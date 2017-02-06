@@ -19,6 +19,7 @@
 #include <map>
 
 using namespace std;        // допустимо писать в глобальном пространстве только в cpp-файлах!
+using namespace xi;
 
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
@@ -44,7 +45,7 @@ void DNARepairer::repairDNA()
     // ВАЖНО! Все содержимое этого метода всего лишь пример.
     // Удалите его и перепишите функцию repairDNA заново.
 
-    Node<DNA>* it = DNAStorage.getPreHead();
+    Node<DNAElement>* it = DNAStorage.getPreHead();
     Node<DNA>* it1 = nullptr;
     Node<DNA>* it2 = nullptr;
 
@@ -72,6 +73,8 @@ void DNARepairer::repairDNA()
     // Конец примера
 
     // TODO: Write your code here...
+    
+    for (int i=0; i<_dnaStorage.
 }
 
 void DNARepairer::printDNAStorage()
