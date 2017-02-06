@@ -4,8 +4,8 @@
 /// \authors   Sergey Shershakov, Leonid Dworzanski
 /// \version   0.2.0
 /// \date      06.02.2017
-///            This is a part of the course "Algorithms and Data Structures" 
-///            provided by  the School of Software Engineering of the Faculty 
+///            This is a part of the course "Algorithms and Data Structures"
+///            provided by  the School of Software Engineering of the Faculty
 ///            of Computer Science at the Higher School of Economics.
 ///
 /// Определение класса "Элемент ДНК", DNAElement.
@@ -55,25 +55,29 @@ DNAElement::DNAElement(const std::string& description)
 void DNAElement::readFromString(const std::string& description)
 {
     using namespace std;
+
     if (description[0] < 'a' || description[0] > 'z')
-    {
         throw invalid_argument("Invalid id");
-    }
+
     if (description.find(" ") != string::npos)
-    {
         throw invalid_argument("Description contains a space");
-    }
+
     if (description.find(":") == string::npos)
-    {
         throw invalid_argument("Description does not contain delimiter");
-    }
+
+    if (description.size() < 4)
+        throw invalid_argument("Description string is too short");
+
     char type_char = description[description.size() - 1];
-    if (type_char != 'A' && type_char != 'C' && type_char != 'T' && type_char != 'G')
-    {
+    if (type_char != DNABase::A
+            && type_char != DNABase::C
+            && type_char != DNABase::T
+            && type_char != DNABase::G
+        )
         throw invalid_argument("Invalid element type");
-    }
+
     id = description[0];
     number = std::stoi(description.substr(1));
-    base = type_char;
+    base = (DNAElement::DNABase) type_char;
 }
 

@@ -60,12 +60,20 @@ public:
     int number;    
 
     /// Кислотное основание.
-    std::string base;    
+    DNABase base;    
 
 
+enum DNABase {
+    A = 'A'
+    , C = 'C'
+    , T = 'T'
+    , G = 'G'
+}
 
 
 
 }; // class DNAElement
+
+
 
 #endif // BROKENDNA_DNAELEMENT_H_

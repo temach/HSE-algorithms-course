@@ -60,7 +60,24 @@ public:
     /// Деструктор
     ~LinkedList();
 
-    // TODO: не забыть про конструктор копий и операцию присваивания!
+    /**
+     * @brief Конструктор копирования.
+     * Реализовал Артем Абрамов БПИ151
+     *
+     * @param other Другой экземпляр типа SafeArray<T>
+     */
+    LinkedList(const LinkedList<T>& other);
+
+
+    /**
+     * @brief Оператор присваивания
+     * Реализовал Артем Абрамов БПИ151
+     *
+     * @param other Другой экземпляр типа SafeArray<T>
+     *
+     * @return Ссылку на rhs объект.
+     */
+    LinkedList<T>& operator= (const LinkedList<T>& other);
 
 
 public:
