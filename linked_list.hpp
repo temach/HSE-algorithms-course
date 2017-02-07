@@ -95,13 +95,13 @@ T& LinkedList<T>::operator[] (int i)
     // if index < 0 or list is empty
     if (i < 0 || ! _preHead->next)
         throw out_of_range("Index must be >= 0");
-    Node<T>* cur_data = _preHead->next;
-    while (i > 0)
+    Node<T>* cur_data = _preHead;
+    while (i >= 0)
     {
+        cur_data = cur_data->next;
         if (! cur_data)
             throw out_of_range("Index too big");
         i--;
-        cur_data = cur_data->next;
     }
     // we can guarantee that cur_data != nullptr
     return cur_data->value;
