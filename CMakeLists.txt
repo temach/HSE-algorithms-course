@@ -4,6 +4,6 @@ add_executable(broken_dna_main
     linked_list.hpp
     dna_element.h
     dna_element.cpp
-    # dna_repairer.h
-    # dna_repairer.cpp
+    dna_repairer.h
+    dna_repairer.cpp
 )
