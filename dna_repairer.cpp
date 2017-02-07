@@ -21,23 +21,6 @@
 using namespace std;        // допустимо писать в глобальном пространстве только в cpp-файлах!
 using namespace xi;
 
-// !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-
-//  Очень важно!!
-//  Этот файл является лишь примером-подсказкой, который
-//  показывает как обращаться со списком имея доступ лишь
-//  к pPreHead.
-//  Вы должны опираясь на его реализовать свое правильное решение.
-//  Например в методе readFile не проверяется формат и не
-//  возбуждаются исключения, а repairDNA делает вообще
-//  неизвестно что!!!
-//  Кроме того этот пример будет работать только если у вас
-//  правильно реализован linked_list.h
-
-// !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-
-
-
 
 void DNARepairer::repairDNA()
 {
@@ -49,35 +32,46 @@ void DNARepairer::repairDNA()
         DNAChain& partial_chain = _dnaStorage.getPreHead()->next->value;
         // examine the first element in partial chain
         NodeDNA* partial_chain_head = partial_chain.getPreHead()->next;
-        // TODO handle the map is empty for this "id"
-
-
-        // If the map is not empty
-        // find where to insert it into good_chain
-        DNAChain* ordered_chain = idmap[partial_chain_head->value.id];
-        // iterate already sorted DNA elements
-        NodeDNA* prev_elem = ordered_chain->getPreHead();
-        NodeDNA* elem = prev_elem->next;
-        // map not empty => (elem != nullptr)
-        while (elem->next)
+        if ( idmap.find(partial_chain_head->value.id) == idmap.end() )
         {
-            // ok, we must insert before the elem. (so after prev_elem)
-            if (elem->value.number > partial_chain_head->value.number)
-            {
-                break;
-            }
-            prev_elem = elem;
-            elem = elem->next;
+            // If the map is empty
+            DNAChain* ordered_chain = new DNAChain{};
+            idmap.insert({partial_chain_head->value.id, ordered_chain});
+            // move nodes to its end
+            ordered_chain->moveNodesToEnd(partial_chain.getPreHead(), partial_chain.getEndNode());
         }
-        ordered_chain->moveNodesAfter(prev_elem, partial_chain.getPreHead(), partial_chain.getEndNode());
+        else
+        {
+            // If the map is NOT empty
+            // find where to insert it into good_chain
+            DNAChain* ordered_chain = idmap[partial_chain_head->value.id];
+            // iterate already sorted DNA elements
+            NodeDNA* prev_elem = ordered_chain->getPreHead();
+            // map not empty, so there is at least one element (elem != nullptr)
+            NodeDNA* elem = prev_elem->next;
+            while (elem)
+            {
+                // if we must insert before the elem (after prev_elem)
+                if (elem->value.number > partial_chain_head->value.number)
+                {
+                    break;
+                }
+                prev_elem = elem;
+                elem = elem->next;
+            }
+            ordered_chain->moveNodesAfter(prev_elem, partial_chain.getPreHead(), partial_chain.getEndNode());
+        }
         // after move, erase the partial_chain that was just moved
         _dnaStorage.deleteNextNode(_dnaStorage.getPreHead());
     }
-
+    // place results from Id2DNA map into _dnaStorage variable
     for (auto const& dna_id : idmap)
     {
-
-
+        DNAChain* good_elements = idmap[dna_id.first];
+        // add via copy
+        _dnaStorage.addElementToEnd(*good_elements);
+        // free memory
+        delete good_elements;
     }
 }
 
@@ -94,7 +88,7 @@ void DNARepairer::printDNAStorage()
         {
             element = element->next;
             cout << element->value.id << "" << element->value.number << ":";
-            cout << element->value.base << "  ";
+            cout << static_cast<char>(element->value.base) << "  ";
         }
         cout << endl;
     }
@@ -106,14 +100,14 @@ void DNARepairer::readFile(const string& filename)
     ifstream fin(filename);
     if (!fin)
         throw std::runtime_error("Could not open file");
-    // chain of sqquental DNA elements that should not be cut
+    // chain of sequental DNA elements that should not be cut
     DNAChain cur_chain {};
     // previous element read from file
     DNAElement prev_element{};
     // description of element read from file
     string description;
     // skip whitespace and use getline separated by whitespace
-    while (fin >> std::ws && getline(fin, description, ' '))
+    while (fin >> std::ws && fin >> description)
     {
         // read element
         DNAElement current {description};
@@ -133,4 +127,7 @@ void DNARepairer::readFile(const string& filename)
         // remember the previous element
         prev_element = current;
     }
+    // add the last chain to list
+    _dnaStorage.addElementToEnd(cur_chain);
+    cur_chain.deleteNodes(cur_chain.getPreHead(), cur_chain.getEndNode());
 }

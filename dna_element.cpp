@@ -28,7 +28,9 @@ std::string trim(const std::string& str)
 
 DNAElement::DNAElement()
 {
-
+    id = "";
+    number = 0;
+    base = static_cast<DNAElement::DNABase>(0);
 }
 
 DNAElement::DNAElement(const std::string& description)
@@ -68,16 +70,17 @@ void DNAElement::readFromString(const std::string& description)
     if (description.size() < 4)
         throw invalid_argument("Description string is too short");
 
-    char type_char = description[description.size() - 1];
-    if (type_char != DNABase::A
-            && type_char != DNABase::C
-            && type_char != DNABase::T
-            && type_char != DNABase::G
+    char type_char = description[description.find(":") + 1];
+    if (
+        type_char != DNABase::A
+        && type_char != DNABase::C
+        && type_char != DNABase::T
+        && type_char != DNABase::G
         )
         throw invalid_argument("Invalid element type");
 
     id = description[0];
-    number = std::stoi(description.substr(1));
-    base = (DNAElement::DNABase) type_char;
+    number = stoi(description.substr(1));
+    base = static_cast<DNAElement::DNABase>(type_char);
 }
 

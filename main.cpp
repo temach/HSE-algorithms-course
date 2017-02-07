@@ -21,10 +21,10 @@ using namespace std;
 using namespace xi;
 
 // TODO: укажите здесь абсолютный путь к файлу с кусочками ДНК для восстановления
-static const char* INP_FILENAME = "../../../res/test.in";
-// static const char* INP_FILENAME = "../res/test2.in";
-// static const char* INP_FILENAME = "../res/test3.in";
-// static const char* INP_FILENAME = "../res/test5.in";
+// static const char* INP_FILENAME = "../../../res/test.in";
+// static const char* INP_FILENAME = "../../../res/test2.in";
+// static const char* INP_FILENAME = "../../../res/test3.in";
+ static const char* INP_FILENAME = "../../../res/test5.in";
 //
 static string def = "";
 

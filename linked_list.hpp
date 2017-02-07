@@ -65,8 +65,9 @@ LinkedList<T>& LinkedList<T>::operator=(LinkedList<T>& other)
 {
     if (this == &other)
         return *this;
-    // clear this list, does not delete _preHead
-    deleteNodes(_preHead, getEndNode(_preHead));
+    // if list not empty, clear this list, does not delete _preHead
+    if (_preHead->next)
+        deleteNodes(_preHead, getEndNode(_preHead));
     // copy values
     Node<T>* cur = other.getPreHead()->next;
     while (cur)
@@ -137,8 +138,8 @@ void LinkedList<T>::addElementToEnd(T& value)
 template <class T>
 void LinkedList<T>::deleteNodes(Node<T>* pNodeBefore, Node<T>* pNodeLast)
 {
-    if (! pNodeBefore || ! pNodeLast)
-        throw std::invalid_argument("Invalid pNodeBefore pointer");
+    if (! pNodeLast || ! pNodeBefore || ! pNodeBefore->next)
+        throw std::invalid_argument("Unexpected nullptr");
     while (pNodeBefore->next != pNodeLast)
     {
         // if we travelled whole list, but did not find end node
@@ -202,20 +203,17 @@ void LinkedList<T>::moveNodeToEnd(Node<T>* pNodeBefore)
 template <class T>
 void LinkedList<T>::moveNodesAfter(Node<T>* pNode, Node<T>* pNodeBefore, Node<T>* pNodeLast)
 {
-    // create pointer to our list tail
-    Node<T>* this_tail = pNode;
-    // choose first node form other list
-    Node<T>* other_cur = pNodeBefore;
-    // if data node in other list is not empty
-    while (other_cur->next != pNodeLast)
-    {
-        if (! other_cur->next)
-            throw std::invalid_argument("Unexpected nullptr");
-        moveNodeAfter(this_tail, other_cur);
-        this_tail = this_tail->next;
-    }
-    // need to do it one more time to move the pNodeLast
-    moveNodeAfter(this_tail, other_cur);
+    if (! pNodeLast || ! pNodeBefore || ! pNodeBefore->next || ! pNode)
+        throw std::invalid_argument("Unexpected nullptr");
+    // remember the pointer to end boundary node in this list
+    Node<T>* this_tail = pNode->next;
+    // remember the pointer to end boundary node in other list
+    Node<T>* other_tail = pNodeLast->next;
+    // plug other list into this list
+    pNode->next = pNodeBefore->next;
+    pNodeLast->next = this_tail;
+    // fix together the other list
+    pNodeBefore->next = other_tail;
 }
 
 /// Перемещает узел pNodeBefore->next из другого списка в текущий список после узла pNode.
@@ -223,6 +221,8 @@ void LinkedList<T>::moveNodesAfter(Node<T>* pNode, Node<T>* pNodeBefore, Node<T>
 template <class T>
 void LinkedList<T>::moveNodeAfter(Node<T>* pNode, Node<T>* pNodeBefore)
 {
+    if (! pNode || ! pNodeBefore || ! pNodeBefore->next)
+        throw std::invalid_argument("Unexpected nullptr");
     // unlink other node from other list
     Node<T>* other_node = unlinkNextNode(pNodeBefore);
     // remember the tail
