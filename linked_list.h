@@ -67,7 +67,7 @@ public:
      * @param other Другой экземпляр типа SafeArray<T>. Не может быть "const" так 
      *              как в функции на нем вызываеться метод getPreHead() который не "const"
      */
-    LinkedList(LinkedList<T>& other);
+    LinkedList(const LinkedList<T>& other);
 
 
     /**
@@ -79,7 +79,7 @@ public:
      *
      * @return Ссылку на rhs объект.
      */
-    LinkedList<T>& operator= (LinkedList<T>& other);
+    LinkedList<T>& operator= (const LinkedList<T>& other);
 
 
 public:

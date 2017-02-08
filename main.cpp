@@ -24,7 +24,8 @@ using namespace xi;
 // static const char* INP_FILENAME = "../../../res/test.in";
 // static const char* INP_FILENAME = "../../../res/test2.in";
 // static const char* INP_FILENAME = "../../../res/test3.in";
- static const char* INP_FILENAME = "../../../res/test5.in";
+// static const char* INP_FILENAME = "./test5.in";
+static const char* INP_FILENAME = "./test6.in";
 //
 static string def = "";
 

@@ -58,19 +58,25 @@ void DNAElement::readFromString(const std::string& description)
 {
     using namespace std;
 
-    if (description[0] < 'a' || description[0] > 'z')
-        throw invalid_argument("Invalid id");
+    if (description.size() < 4)
+        throw invalid_argument("Element description string is too short");
 
     if (description.find(" ") != string::npos)
-        throw invalid_argument("Description contains a space");
+        throw invalid_argument("Element description contains a space");
 
     if (description.find(":") == string::npos)
-        throw invalid_argument("Description does not contain delimiter");
+        throw invalid_argument("Element description does not contain delimiter");
 
-    if (description.size() < 4)
-        throw invalid_argument("Description string is too short");
+    if (description[0] < 'a' || description[0] > 'z')
+        throw invalid_argument("Element invalid id");
 
-    char type_char = description[description.find(":") + 1];
+    if (description[1] < '0' || description[1] > '9')
+        throw invalid_argument("Element invalid id");
+
+    char type_char = description[description.size() - 1];
+    if (type_char != description[description.find(":") + 1])
+        throw invalid_argument("Element type character should follow : and be last in element description");
+
     if (
         type_char != DNABase::A
         && type_char != DNABase::C
@@ -80,7 +86,18 @@ void DNAElement::readFromString(const std::string& description)
         throw invalid_argument("Invalid element type");
 
     id = description[0];
-    number = stoi(description.substr(1));
+    try
+    {
+        string number_string = description.substr(1, description.find(":") - 1);
+        string::size_type first_not_converted;
+        number = stoi(number_string, &first_not_converted, 10);
+        if (number_string.substr(first_not_converted).size() > 0)
+            throw invalid_argument("Element invalid number");
+    }
+    catch (...)
+    {
+        throw invalid_argument("Element invalid number");
+    }
     base = static_cast<DNAElement::DNABase>(type_char);
 }
 

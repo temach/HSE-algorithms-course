@@ -43,12 +43,12 @@ LinkedList<T>::~LinkedList()
 // Реализовал Артем Абрамов БПИ151
 // "other" can not be a "const" reference because we use getPreHead function which is not "const"
 template <class T>
-LinkedList<T>::LinkedList(LinkedList<T>& other)
+LinkedList<T>::LinkedList(const LinkedList<T>& other)
 {
     // create preHead node
     _preHead = new Node<T>();
     // copy values
-    Node<T>* cur = other.getPreHead()->next;
+    Node<T>* cur = other._preHead->next;
     while (cur)
     {
         addElementToEnd(cur->value);
@@ -61,7 +61,7 @@ LinkedList<T>::LinkedList(LinkedList<T>& other)
 // Реализовал Артем Абрамов БПИ151
 // "other" can not be a "const" reference because we use getPreHead function which is not "const"
 template <class T>
-LinkedList<T>& LinkedList<T>::operator=(LinkedList<T>& other)
+LinkedList<T>& LinkedList<T>::operator=(const LinkedList<T>& other)
 {
     if (this == &other)
         return *this;
@@ -69,7 +69,7 @@ LinkedList<T>& LinkedList<T>::operator=(LinkedList<T>& other)
     if (_preHead->next)
         deleteNodes(_preHead, getEndNode(_preHead));
     // copy values
-    Node<T>* cur = other.getPreHead()->next;
+    Node<T>* cur = other._preHead->next;
     while (cur)
     {
         addElementToEnd(cur->value);

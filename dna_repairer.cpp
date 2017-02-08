@@ -106,7 +106,7 @@ void DNARepairer::readFile(const string& filename)
     DNAElement prev_element{};
     // description of element read from file
     string description;
-    // skip whitespace and use getline separated by whitespace
+    // skip whitespace and read words separated by whitespace
     while (fin >> std::ws && fin >> description)
     {
         // read element
@@ -127,6 +127,9 @@ void DNARepairer::readFile(const string& filename)
         // remember the previous element
         prev_element = current;
     }
+    // if the last chain contains no elements
+    if (cur_chain.size() < 1)
+        throw runtime_error("File is badly formatted");
     // add the last chain to list
     _dnaStorage.addElementToEnd(cur_chain);
     cur_chain.deleteNodes(cur_chain.getPreHead(), cur_chain.getEndNode());
