@@ -52,7 +52,7 @@ public:
 
 public:
 
-enum DNABase {
+enum DNABase : char {
     A = 'A'
     , C = 'C'
     , T = 'T'
