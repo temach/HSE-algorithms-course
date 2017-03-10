@@ -1,0 +1,127 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.12"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Safe Array / A&amp;DS HSE&#39;s Course: Требования, цели и ожидаемые результаты</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">Safe Array / A&amp;DS HSE&#39;s Course
+   &#160;<span id="projectnumber">0.2</span>
+   </div>
+   <div id="projectbrief">Safe Array / A&amp;DS HSE&#39;s Course 2015–2017 © HSE&#39;s A&amp;DS Team &amp; Sergey Shershakov</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Создано системой Doxygen 1.8.12 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search",false,'Поиск');
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+$(function() {
+  initMenu('',true,false,'search.php','Поиск');
+  $(document).ready(function() { init_search(); });
+});
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div class="header">
+  <div class="headertitle">
+<div class="title">Требования, цели и ожидаемые результаты </div>  </div>
+</div><!--header-->
+<div class="contents">
+<div class="textblock"><h3>Требования</h3>
+<p>Студенты должны владеть следующими знаниями, умениями и навыками для выполнения задания.</p>
+<ul>
+<li><em>Шаблоны</em> — понимание основ метапрограммирования с использованием шаблонов.</li>
+<li><em>Расширение классов</em> с использованием внешних «дружественных» функций.</li>
+<li><em>Исключительные ситуации</em>.</li>
+</ul>
+<h3>Цели и задачи</h3>
+<p><em>Основная цель работы</em> — изучение практических основ создание шаблонов классов в языке C++.</p>
+<p><em>Задачи для выполнения</em>:</p><ul>
+<li>изучить предложенные файлы и классы <code>SafeArray</code> и <code>Subject</code>;</li>
+<li>изучить подходы по разделению частей шаблон на описание заготовки класса и описания заготовки описанных методов класса;</li>
+<li>реализовать описание недостающих методов классов <code>SafeArray</code> и <code>Subject</code>.</li>
+</ul>
+<h3>Ожидаемые результаты</h3>
+<p>Студенты, успешно (и самостоятельно) выполнившие задание, получат практические навыки разработки шаблонов классов и расширения семантики стандартных типов данных (на примере потоков) для пользовательских классов.</p>
+<h2>Предпосылки</h2>
+<p>C-массивы не осуществляют проверку за выход за диапазон допустимых операций. Программист может случайно (или умышленно) осуществить чтение или запись элементов массива за границами выделенной памяти. При этом программа может продолжать работу без принаков наличия ошибок, что затрудняет их обнаружение и устранение. Однако наличие таких ошибок в программах недопустимо, и одниз из способов их устранения является использования специальных структур данных, осуществляющих проверку выхода за границы допустимого диапазона.</p>
+<p><em>Защищенный массив</em> (safe array) — вид массива, который предоставляет доступ к своим элементам с проверкой за невыход за границы диапазона значений. Для поддержки стандартной семантики обращения к элементам такого массива, в C++ часто перегружается оператор <code>operator[]</code>.</p>
+<h2>Описание задания</h2>
+<h3>Класс <code>SafeArray</code></h3>
+<p>Класс, представляющий собой защищенный массив, представлен типом <a class="el" href="de/dd9/classxi_1_1_safe_array.html" title="Класс &quot;защищенный массив&quot;. ">xi::SafeArray</a>. Данный тип является шаблоном, параметр которого, <code>T</code>, представляет элементы, которые хранятся в массиве <code>SafeArray</code>. Описание структуры и методов класса <a class="el" href="de/dd9/classxi_1_1_safe_array.html" title="Класс &quot;защищенный массив&quot;. ">xi::SafeArray</a> подробно представлено в авто-документации к этому классу.</p>
+<p>Так как исполняемая часть класс <code>SafeArray</code> не может быть скопилирована до момента конкретизации типа <code>T</code>, модуль, представляющий этот класс, содержит только заголовочные определения, которые разделены на два файла: <a class="el" href="df/da2/safearray_8h.html" title="SafeArray class definition. ">safearray.h</a> и <a class="el" href="dc/dc3/safearray_8hpp.html" title="Safearray class methods definition. ">safearray.hpp</a>.</p>
+<p>Файл <a class="el" href="df/da2/safearray_8h.html" title="SafeArray class definition. ">safearray.h</a> является «основным» заголовочным файлом, содержащим описание класса <code>SafeArray</code>. Этот файл включается модулем трансляции (cpp-файлом, прямо или косвенно), использующим этот тип данных. Файл <a class="el" href="dc/dc3/safearray_8hpp.html" title="Safearray class methods definition. ">safearray.hpp</a> не является самостоятельным заголовочным файлом и не может быть включен в код где-либо, за исключением своего «родительского» файла <a class="el" href="df/da2/safearray_8h.html" title="SafeArray class definition. ">safearray.h</a> (см. директиву <code>#include</code> в конце файла).</p>
+<p>Файл <a class="el" href="dc/dc3/safearray_8hpp.html" title="Safearray class methods definition. ">safearray.hpp</a> включает доописание методов класса <code>SafeArray</code>, прототипы которых описаны в файле <a class="el" href="df/da2/safearray_8h.html" title="SafeArray class definition. ">safearray.h</a>. Обратите внимание, что так как доописание этих методов осуществляется вне исходного класса, заголовки методов включают информацию не только о «своем» классе, но и о параметрах шаблона.</p>
+<p>Определение методов класса <a class="el" href="de/dd9/classxi_1_1_safe_array.html" title="Класс &quot;защищенный массив&quot;. ">xi::SafeArray</a> в файле <a class="el" href="dc/dc3/safearray_8hpp.html" title="Safearray class methods definition. ">safearray.hpp</a> является относится к первой части данной работы.</p>
+<h3>Класс <code>Subject</code></h3>
+<p>Класс <a class="el" href="df/d9d/classxi_1_1_subject.html" title="Класс, определяющий некоторую учебную дисциплину. ">xi::Subject</a> является простой структурой данных, включающей информацию о записи об образовательном предмете со следующими атрибутами:</p><ul>
+<li>название предмета;</li>
+<li>заголовок предмета;</li>
+<li>текстовое описание предмета (до 10 строк).</li>
+</ul>
+<p>Информация о предметах дана в виде демонстрационного файла <code>/res/raw/subjects.txt</code>. Тестирование соответствия программы спецификации также осуществляется с использованием этого файла.</p>
+<p>Описание класса <a class="el" href="df/d9d/classxi_1_1_subject.html" title="Класс, определяющий некоторую учебную дисциплину. ">xi::Subject</a> практически полностью представлено в заголовочном файле <a class="el" href="d9/d8c/subject_8h.html" title="Definition of an auxillary class Subject. ">subject.h</a> и не представляет затруднения. Внимания к себе требуют два перегруженных оператора <code>operator&lt;&lt;</code> и <code>operator&gt;&gt;</code>. Данные операторы получают первым операндом поток (вывода или ввода соответственно), а вторым — объект класса <code>Subject</code>. Операторы осуществляют вывод текстового представления объекта <code>Subject</code> в поток вывода или ввод этого объекта в виде текстовых строк из потока ввода. Использование базовых классов потоков позволяет осуществлять ввода/вывод как с клавиатуры/в консоль, так и из файла/в файл.</p>
+<p>Реализация оператор-функции <a class="el" href="df/d9d/classxi_1_1_subject.html#a863779c918c14b740208a04292e385e2" title="Дружественная оператор-функция вывода объекта в поток вывода. ">xi::Subject::operator&lt;&lt;()</a> предложено вместе с заданием, а реализация оператор-функции <a class="el" href="df/d9d/classxi_1_1_subject.html#a188fa5fd653bbdc9b2e27c4a9f393e45" title="Дружественная оператор-функция для ввода объекта из потока. ">xi::Subject::operator&gt;&gt;()</a> в соответствии со спецификацией относится ко второй части данной работы.</p>
+<h2>Указания по выполнению задания</h2>
+<h3>Исходные файлы</h3>
+<ul>
+<li><a class="el" href="df/da2/safearray_8h.html" title="SafeArray class definition. ">safearray.h</a> — описание шаблона класса <a class="el" href="de/dd9/classxi_1_1_safe_array.html" title="Класс &quot;защищенный массив&quot;. ">xi::SafeArray</a>; файл можно при необходимости дополнять;</li>
+<li><a class="el" href="dc/dc3/safearray_8hpp.html" title="Safearray class methods definition. ">safearray.hpp</a> — доописание методов класса <a class="el" href="de/dd9/classxi_1_1_safe_array.html" title="Класс &quot;защищенный массив&quot;. ">xi::SafeArray</a>; данный файл сдается в качестве результата работы;</li>
+<li><a class="el" href="d9/d8c/subject_8h.html" title="Definition of an auxillary class Subject. ">subject.h</a> — описание класса <a class="el" href="df/d9d/classxi_1_1_subject.html" title="Класс, определяющий некоторую учебную дисциплину. ">xi::Subject</a>; изменение этого файла заданием не предусматривается;</li>
+<li><a class="el" href="d8/d9f/subject_8cpp.html" title="Definition of some methods for class Subject. ">subject.cpp</a> — реализация оператор-функций для работа с потоками, описанными в классе <a class="el" href="df/d9d/classxi_1_1_subject.html" title="Класс, определяющий некоторую учебную дисциплину. ">xi::Subject</a>; данный файл сдается в качестве результата работы;</li>
+<li>main.cpp — стартовый метод программы; изменение этого файла заданием не предусматривается.</li>
+</ul>
+<h3>Задачи для выполнения</h3>
+<ol type="1">
+<li>Разобраться со структурой исходных кодов и предлагаемых сборочных проектов/решений.</li>
+<li>Определить файлы, в которые необходимо внести рабочие изменения и внести их.</li>
+<li>Сдать измененные файлы в виде zip-архива в систему LMS.</li>
+</ol>
+<h3>Представление результатов</h3>
+<p>В качестве результата сдаются следующие файлы: <em><a class="el" href="dc/dc3/safearray_8hpp.html" title="Safearray class methods definition. ">safearray.hpp</a></em>, <em><a class="el" href="d8/d9f/subject_8cpp.html" title="Definition of some methods for class Subject. ">subject.cpp</a></em>, опционально — <em><a class="el" href="df/da2/safearray_8h.html" title="SafeArray class definition. ">safearray.h</a></em>. </p>
+</div></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Документация по Safe Array / A&amp;DS HSE&#39;s Course. Последние изменения: Вт 31 Янв 2017 13:44:46. Создано системой &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.12
+</small></address>
+</body>
+</html>

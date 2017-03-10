@@ -1,0 +1,161 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.10"/>
+<title>«BrokenDNA» / Linked List / A&amp;DS HSE&#39;s Course: Исходный файл F:/HSE/training/algo/16_17/part2/projects/broken_dna/bitbucket/src/dna_repairer.h</title>
+<link href="../../tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../jquery.js"></script>
+<script type="text/javascript" src="../../dynsections.js"></script>
+<link href="../../search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../search/searchdata.js"></script>
+<script type="text/javascript" src="../../search/search.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() { init_search(); });
+</script>
+<link href="../../doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">«BrokenDNA» / Linked List / A&amp;DS HSE&#39;s Course
+   &#160;<span id="projectnumber">0.2</span>
+   </div>
+   <div id="projectbrief">«BrokenDNA» / Linked List / A&amp;DS HSE&#39;s Course 2015–2017 © HSE&#39;s A&amp;DS Team &amp; Sergey Shershakov</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Создано системой Doxygen 1.8.10 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "../../search",false,'Поиск');
+</script>
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="../../index.html"><span>Титульная&#160;страница</span></a></li>
+      <li><a href="../../pages.html"><span>Описания</span></a></li>
+      <li><a href="../../namespaces.html"><span>Пространства&#160;имен</span></a></li>
+      <li><a href="../../annotated.html"><span>Классы</span></a></li>
+      <li class="current"><a href="../../files.html"><span>Файлы</span></a></li>
+      <li>
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="../../search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="Поиск" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="../../search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="../../files.html"><span>Файлы</span></a></li>
+    </ul>
+  </div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="../../dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle">
+<div class="title">dna_repairer.h</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="../../d9/d6d/dna__repairer_8h.html">См. документацию.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;</div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="preprocessor">#ifndef BROKENDNA_DNAREPAIRER_H_</span></div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="preprocessor">#define BROKENDNA_DNAREPAIRER_H_</span></div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../d0/df8/dna__element_8h.html">dna_element.h</a>&quot;</span></div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../d1/d4a/linked__list_8h.html">linked_list.h</a>&quot;</span></div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="preprocessor">#include &lt;map&gt;</span></div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;</div>
+<div class="line"><a name="l00029"></a><span class="lineno"><a class="line" href="../../df/de8/class_d_n_a_repairer.html">   29</a></span>&#160;<span class="keyword">class </span><a class="code" href="../../df/de8/class_d_n_a_repairer.html">DNARepairer</a> {</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    <span class="comment">// Открытые типы</span></div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;</div>
+<div class="line"><a name="l00035"></a><span class="lineno"><a class="line" href="../../df/de8/class_d_n_a_repairer.html#a46b658c5deb986fd695a3150a923ab43">   35</a></span>&#160;    <span class="keyword">typedef</span> <a class="code" href="../../d2/d42/classxi_1_1_linked_list.html">xi::LinkedList&lt;DNAElement&gt;</a> <a class="code" href="../../df/de8/class_d_n_a_repairer.html#a46b658c5deb986fd695a3150a923ab43">DNAChain</a>;</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;</div>
+<div class="line"><a name="l00039"></a><span class="lineno"><a class="line" href="../../df/de8/class_d_n_a_repairer.html#ae0f2ae1afd99901a5e5264459da0b9e5">   39</a></span>&#160;    <span class="keyword">typedef</span> <a class="code" href="../../dd/d69/classxi_1_1_node.html">xi::Node&lt;DNAElement&gt;</a> <a class="code" href="../../df/de8/class_d_n_a_repairer.html#ae0f2ae1afd99901a5e5264459da0b9e5">NodeDNA</a>;</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;</div>
+<div class="line"><a name="l00042"></a><span class="lineno"><a class="line" href="../../df/de8/class_d_n_a_repairer.html#a959f4cb45073dd12258ef92d786b1083">   42</a></span>&#160;    <span class="keyword">typedef</span> <a class="code" href="../../d2/d42/classxi_1_1_linked_list.html">xi::LinkedList&lt;DNAChain&gt;</a> <a class="code" href="../../df/de8/class_d_n_a_repairer.html#a959f4cb45073dd12258ef92d786b1083">ListOfDNAChains</a>;</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;</div>
+<div class="line"><a name="l00045"></a><span class="lineno"><a class="line" href="../../df/de8/class_d_n_a_repairer.html#a25947ec19e792bcbc406a7a0f6afb214">   45</a></span>&#160;    <span class="keyword">typedef</span> <a class="code" href="../../dd/d69/classxi_1_1_node.html">xi::Node&lt;DNAChain&gt;</a> <a class="code" href="../../df/de8/class_d_n_a_repairer.html#a25947ec19e792bcbc406a7a0f6afb214">NodeDNAChain</a>;</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;</div>
+<div class="line"><a name="l00048"></a><span class="lineno"><a class="line" href="../../df/de8/class_d_n_a_repairer.html#a9cfc1565595325d5202862b1aa678576">   48</a></span>&#160;    <span class="keyword">typedef</span> std::map&lt; std::string, DNAChain* &gt; <a class="code" href="../../df/de8/class_d_n_a_repairer.html#a9cfc1565595325d5202862b1aa678576">Id2DnaMap</a>;</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    ListOfDNAChains&amp; <a class="code" href="../../df/de8/class_d_n_a_repairer.html#a3d5ce26798ef2b3037b4b1de5922e7e4">getDNAStorage</a>();</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="../../df/de8/class_d_n_a_repairer.html#ac5d850c986080164f02d5efddf9d3783">readFile</a>(<span class="keyword">const</span> std::string&amp; filename);</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="../../df/de8/class_d_n_a_repairer.html#aedaff1aceb0fd6b11efbbd94a81ef703">repairDNA</a>();</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="../../df/de8/class_d_n_a_repairer.html#a43f0d94b3ab240599a37b43c070c378e">printDNAStorage</a>();</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;    </div>
+<div class="line"><a name="l00070"></a><span class="lineno"><a class="line" href="../../df/de8/class_d_n_a_repairer.html#a78d02c798fdf49a85dacea9af23e8c77">   70</a></span>&#160;    ListOfDNAChains <a class="code" href="../../df/de8/class_d_n_a_repairer.html#a78d02c798fdf49a85dacea9af23e8c77">_dnaStorage</a>;</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;}; <span class="comment">// class DNARepairer</span></div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;<span class="preprocessor">#endif // BROKENDNA_DNAREPAIRER_H_</span></div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;</div>
+<div class="ttc" id="class_d_n_a_repairer_html_a78d02c798fdf49a85dacea9af23e8c77"><div class="ttname"><a href="../../df/de8/class_d_n_a_repairer.html#a78d02c798fdf49a85dacea9af23e8c77">DNARepairer::_dnaStorage</a></div><div class="ttdeci">ListOfDNAChains _dnaStorage</div><div class="ttdoc">Хранилище цепочек ДНК. </div><div class="ttdef"><b>Definition:</b> dna_repairer.h:70</div></div>
+<div class="ttc" id="classxi_1_1_linked_list_html"><div class="ttname"><a href="../../d2/d42/classxi_1_1_linked_list.html">xi::LinkedList</a></div><div class="ttdoc">Шаблон класса связного списка. </div><div class="ttdef"><b>Definition:</b> linked_list.h:54</div></div>
+<div class="ttc" id="classxi_1_1_node_html"><div class="ttname"><a href="../../dd/d69/classxi_1_1_node.html">xi::Node</a></div><div class="ttdoc">Узел связного списка. </div><div class="ttdef"><b>Definition:</b> linked_list.h:32</div></div>
+<div class="ttc" id="dna__element_8h_html"><div class="ttname"><a href="../../d0/df8/dna__element_8h.html">dna_element.h</a></div><div class="ttdoc">DNAElement class definition. </div></div>
+<div class="ttc" id="class_d_n_a_repairer_html_a959f4cb45073dd12258ef92d786b1083"><div class="ttname"><a href="../../df/de8/class_d_n_a_repairer.html#a959f4cb45073dd12258ef92d786b1083">DNARepairer::ListOfDNAChains</a></div><div class="ttdeci">xi::LinkedList&lt; DNAChain &gt; ListOfDNAChains</div><div class="ttdoc">Класс представляет список цепочек ДНК. </div><div class="ttdef"><b>Definition:</b> dna_repairer.h:42</div></div>
+<div class="ttc" id="linked__list_8h_html"><div class="ttname"><a href="../../d1/d4a/linked__list_8h.html">linked_list.h</a></div><div class="ttdoc">LinkedList-related classes definition. </div></div>
+<div class="ttc" id="class_d_n_a_repairer_html_ac5d850c986080164f02d5efddf9d3783"><div class="ttname"><a href="../../df/de8/class_d_n_a_repairer.html#ac5d850c986080164f02d5efddf9d3783">DNARepairer::readFile</a></div><div class="ttdeci">void readFile(const std::string &amp;filename)</div><div class="ttdef"><b>Definition:</b> dna_repairer.cpp:319</div></div>
+<div class="ttc" id="class_d_n_a_repairer_html_a3d5ce26798ef2b3037b4b1de5922e7e4"><div class="ttname"><a href="../../df/de8/class_d_n_a_repairer.html#a3d5ce26798ef2b3037b4b1de5922e7e4">DNARepairer::getDNAStorage</a></div><div class="ttdeci">ListOfDNAChains &amp; getDNAStorage()</div><div class="ttdoc">Возвращает ссылку на хранилище цепочек ДНК </div></div>
+<div class="ttc" id="class_d_n_a_repairer_html_aedaff1aceb0fd6b11efbbd94a81ef703"><div class="ttname"><a href="../../df/de8/class_d_n_a_repairer.html#aedaff1aceb0fd6b11efbbd94a81ef703">DNARepairer::repairDNA</a></div><div class="ttdeci">void repairDNA()</div><div class="ttdoc">Осуществляет восстановление всех загруженных цепочек ДНК. </div><div class="ttdef"><b>Definition:</b> dna_repairer.cpp:204</div></div>
+<div class="ttc" id="class_d_n_a_repairer_html_a25947ec19e792bcbc406a7a0f6afb214"><div class="ttname"><a href="../../df/de8/class_d_n_a_repairer.html#a25947ec19e792bcbc406a7a0f6afb214">DNARepairer::NodeDNAChain</a></div><div class="ttdeci">xi::Node&lt; DNAChain &gt; NodeDNAChain</div><div class="ttdoc">Класс представляет один узел-цепочку ДНК. </div><div class="ttdef"><b>Definition:</b> dna_repairer.h:45</div></div>
+<div class="ttc" id="class_d_n_a_repairer_html_a9cfc1565595325d5202862b1aa678576"><div class="ttname"><a href="../../df/de8/class_d_n_a_repairer.html#a9cfc1565595325d5202862b1aa678576">DNARepairer::Id2DnaMap</a></div><div class="ttdeci">std::map&lt; std::string, DNAChain * &gt; Id2DnaMap</div><div class="ttdoc">Отображение идентификатора цепочки ДНК на список, представляющий эту цепочку </div><div class="ttdef"><b>Definition:</b> dna_repairer.h:48</div></div>
+<div class="ttc" id="class_d_n_a_repairer_html_a46b658c5deb986fd695a3150a923ab43"><div class="ttname"><a href="../../df/de8/class_d_n_a_repairer.html#a46b658c5deb986fd695a3150a923ab43">DNARepairer::DNAChain</a></div><div class="ttdeci">xi::LinkedList&lt; DNAElement &gt; DNAChain</div><div class="ttdef"><b>Definition:</b> dna_repairer.h:35</div></div>
+<div class="ttc" id="class_d_n_a_repairer_html_ae0f2ae1afd99901a5e5264459da0b9e5"><div class="ttname"><a href="../../df/de8/class_d_n_a_repairer.html#ae0f2ae1afd99901a5e5264459da0b9e5">DNARepairer::NodeDNA</a></div><div class="ttdeci">xi::Node&lt; DNAElement &gt; NodeDNA</div><div class="ttdef"><b>Definition:</b> dna_repairer.h:39</div></div>
+<div class="ttc" id="class_d_n_a_repairer_html_a43f0d94b3ab240599a37b43c070c378e"><div class="ttname"><a href="../../df/de8/class_d_n_a_repairer.html#a43f0d94b3ab240599a37b43c070c378e">DNARepairer::printDNAStorage</a></div><div class="ttdeci">void printDNAStorage()</div><div class="ttdoc">Выводит содержимое хранилища цепочек ДНК в стандартный поток вывода. </div><div class="ttdef"><b>Definition:</b> dna_repairer.cpp:298</div></div>
+<div class="ttc" id="class_d_n_a_repairer_html"><div class="ttname"><a href="../../df/de8/class_d_n_a_repairer.html">DNARepairer</a></div><div class="ttdoc">Робот-починитель сломанных ДНК </div><div class="ttdef"><b>Definition:</b> dna_repairer.h:29</div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Документация по «BrokenDNA» / Linked List / A&amp;DS HSE&#39;s Course. Последние изменения: Пн 6 Фев 2017 03:40:36. Создано системой &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="../../doxygen.png" alt="doxygen"/>
+</a> 1.8.10
+</small></address>
+</body>
+</html>

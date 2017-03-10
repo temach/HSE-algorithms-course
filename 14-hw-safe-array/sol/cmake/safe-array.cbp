@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6"/>
+	<Project>
+		<Option title="safe-array"/>
+		<Option makefile_is_custom="1"/>
+		<Option compiler="gcc"/>
+		<Option virtualFolders="CMake Files\;CMake Files\..\;CMake Files\..\..\;CMake Files\..\..\src\;CMake Files\..\..\tests\;CMake Files\..\..\tests\gtest\;CMake Files\..\..\tests\gtest\sol\;CMake Files\..\..\tests\gtest\sol\cmake\;CMake Files\..\..\tests\gtest\src\;"/>
+		<Build>
+			<Target title="all">
+				<Option working_dir="/home/artem/Desktop/Uni/algo-structs/14-hw-safe-array/sol/cmake"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j2 -f &quot;/home/artem/Desktop/Uni/algo-structs/14-hw-safe-array/sol/cmake/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="/usr/bin/make -j2 -f &quot;/home/artem/Desktop/Uni/algo-structs/14-hw-safe-array/sol/cmake/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j2 -f &quot;/home/artem/Desktop/Uni/algo-structs/14-hw-safe-array/sol/cmake/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j2 -f &quot;/home/artem/Desktop/Uni/algo-structs/14-hw-safe-array/sol/cmake/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="rebuild_cache">
+				<Option working_dir="/home/artem/Desktop/Uni/algo-structs/14-hw-safe-array/sol/cmake"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j2 -f &quot;/home/artem/Desktop/Uni/algo-structs/14-hw-safe-array/sol/cmake/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="/usr/bin/make -j2 -f &quot;/home/artem/Desktop/Uni/algo-structs/14-hw-safe-array/sol/cmake/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j2 -f &quot;/home/artem/Desktop/Uni/algo-structs/14-hw-safe-array/sol/cmake/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j2 -f &quot;/home/artem/Desktop/Uni/algo-structs/14-hw-safe-array/sol/cmake/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="edit_cache">
+				<Option working_dir="/home/artem/Desktop/Uni/algo-structs/14-hw-safe-array/sol/cmake"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j2 -f &quot;/home/artem/Desktop/Uni/algo-structs/14-hw-safe-array/sol/cmake/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="/usr/bin/make -j2 -f &quot;/home/artem/Desktop/Uni/algo-structs/14-hw-safe-array/sol/cmake/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j2 -f &quot;/home/artem/Desktop/Uni/algo-structs/14-hw-safe-array/sol/cmake/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j2 -f &quot;/home/artem/Desktop/Uni/algo-structs/14-hw-safe-array/sol/cmake/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="safe_array_main">
+				<Option output="/home/artem/Desktop/Uni/algo-structs/14-hw-safe-array/sol/cmake/bin/safe_array_main" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/artem/Desktop/Uni/algo-structs/14-hw-safe-array/sol/cmake/bin"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/usr/lib/gcc/x86_64-pc-linux-gnu/6.3.1/../../../../include/c++/6.3.1"/>
+					<Add directory="/usr/lib/gcc/x86_64-pc-linux-gnu/6.3.1/../../../../include/c++/6.3.1/x86_64-pc-linux-gnu"/>
+					<Add directory="/usr/lib/gcc/x86_64-pc-linux-gnu/6.3.1/../../../../include/c++/6.3.1/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-pc-linux-gnu/6.3.1/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-pc-linux-gnu/6.3.1/include-fixed"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j2 -f &quot;/home/artem/Desktop/Uni/algo-structs/14-hw-safe-array/sol/cmake/tmpfiles/sol/Makefile&quot;  VERBOSE=1 safe_array_main"/>
+					<CompileFile command="/usr/bin/make -j2 -f &quot;/home/artem/Desktop/Uni/algo-structs/14-hw-safe-array/sol/cmake/tmpfiles/sol/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j2 -f &quot;/home/artem/Desktop/Uni/algo-structs/14-hw-safe-array/sol/cmake/tmpfiles/sol/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j2 -f &quot;/home/artem/Desktop/Uni/algo-structs/14-hw-safe-array/sol/cmake/tmpfiles/sol/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="safe_array_main/fast">
+				<Option output="/home/artem/Desktop/Uni/algo-structs/14-hw-safe-array/sol/cmake/bin/safe_array_main" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/artem/Desktop/Uni/algo-structs/14-hw-safe-array/sol/cmake/bin"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/usr/lib/gcc/x86_64-pc-linux-gnu/6.3.1/../../../../include/c++/6.3.1"/>
+					<Add directory="/usr/lib/gcc/x86_64-pc-linux-gnu/6.3.1/../../../../include/c++/6.3.1/x86_64-pc-linux-gnu"/>
+					<Add directory="/usr/lib/gcc/x86_64-pc-linux-gnu/6.3.1/../../../../include/c++/6.3.1/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-pc-linux-gnu/6.3.1/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-pc-linux-gnu/6.3.1/include-fixed"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j2 -f &quot;/home/artem/Desktop/Uni/algo-structs/14-hw-safe-array/sol/cmake/tmpfiles/sol/Makefile&quot;  VERBOSE=1 safe_array_main/fast"/>
+					<CompileFile command="/usr/bin/make -j2 -f &quot;/home/artem/Desktop/Uni/algo-structs/14-hw-safe-array/sol/cmake/tmpfiles/sol/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j2 -f &quot;/home/artem/Desktop/Uni/algo-structs/14-hw-safe-array/sol/cmake/tmpfiles/sol/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j2 -f &quot;/home/artem/Desktop/Uni/algo-structs/14-hw-safe-array/sol/cmake/tmpfiles/sol/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="safe_array_test_start">
+				<Option output="/home/artem/Desktop/Uni/algo-structs/14-hw-safe-array/sol/cmake/bin/safe_array_test_start" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/artem/Desktop/Uni/algo-structs/14-hw-safe-array/sol/cmake/bin"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/home/artem/Desktop/Uni/algo-structs/14-hw-safe-array/sol/cmake/../../src"/>
+					<Add directory="/usr/local/include/gtest"/>
+					<Add directory="/usr/lib/gcc/x86_64-pc-linux-gnu/6.3.1/../../../../include/c++/6.3.1"/>
+					<Add directory="/usr/lib/gcc/x86_64-pc-linux-gnu/6.3.1/../../../../include/c++/6.3.1/x86_64-pc-linux-gnu"/>
+					<Add directory="/usr/lib/gcc/x86_64-pc-linux-gnu/6.3.1/../../../../include/c++/6.3.1/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-pc-linux-gnu/6.3.1/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-pc-linux-gnu/6.3.1/include-fixed"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j2 -f &quot;/home/artem/Desktop/Uni/algo-structs/14-hw-safe-array/sol/cmake/tmpfiles/tests/gtest/sol/cmake/src/Makefile&quot;  VERBOSE=1 safe_array_test_start"/>
+					<CompileFile command="/usr/bin/make -j2 -f &quot;/home/artem/Desktop/Uni/algo-structs/14-hw-safe-array/sol/cmake/tmpfiles/tests/gtest/sol/cmake/src/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j2 -f &quot;/home/artem/Desktop/Uni/algo-structs/14-hw-safe-array/sol/cmake/tmpfiles/tests/gtest/sol/cmake/src/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j2 -f &quot;/home/artem/Desktop/Uni/algo-structs/14-hw-safe-array/sol/cmake/tmpfiles/tests/gtest/sol/cmake/src/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="safe_array_test_start/fast">
+				<Option output="/home/artem/Desktop/Uni/algo-structs/14-hw-safe-array/sol/cmake/bin/safe_array_test_start" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/artem/Desktop/Uni/algo-structs/14-hw-safe-array/sol/cmake/bin"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/home/artem/Desktop/Uni/algo-structs/14-hw-safe-array/sol/cmake/../../src"/>
+					<Add directory="/usr/local/include/gtest"/>
+					<Add directory="/usr/lib/gcc/x86_64-pc-linux-gnu/6.3.1/../../../../include/c++/6.3.1"/>
+					<Add directory="/usr/lib/gcc/x86_64-pc-linux-gnu/6.3.1/../../../../include/c++/6.3.1/x86_64-pc-linux-gnu"/>
+					<Add directory="/usr/lib/gcc/x86_64-pc-linux-gnu/6.3.1/../../../../include/c++/6.3.1/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-pc-linux-gnu/6.3.1/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-pc-linux-gnu/6.3.1/include-fixed"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j2 -f &quot;/home/artem/Desktop/Uni/algo-structs/14-hw-safe-array/sol/cmake/tmpfiles/tests/gtest/sol/cmake/src/Makefile&quot;  VERBOSE=1 safe_array_test_start/fast"/>
+					<CompileFile command="/usr/bin/make -j2 -f &quot;/home/artem/Desktop/Uni/algo-structs/14-hw-safe-array/sol/cmake/tmpfiles/tests/gtest/sol/cmake/src/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j2 -f &quot;/home/artem/Desktop/Uni/algo-structs/14-hw-safe-array/sol/cmake/tmpfiles/tests/gtest/sol/cmake/src/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j2 -f &quot;/home/artem/Desktop/Uni/algo-structs/14-hw-safe-array/sol/cmake/tmpfiles/tests/gtest/sol/cmake/src/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+		</Build>
+		<Unit filename="/home/artem/Desktop/Uni/algo-structs/14-hw-safe-array/src/main.cpp">
+			<Option target="safe_array_main"/>
+		</Unit>
+		<Unit filename="/home/artem/Desktop/Uni/algo-structs/14-hw-safe-array/src/safearray.h">
+			<Option target="safe_array_main"/>
+			<Option target="safe_array_test_start"/>
+		</Unit>
+		<Unit filename="/home/artem/Desktop/Uni/algo-structs/14-hw-safe-array/src/safearray.hpp">
+			<Option target="safe_array_main"/>
+			<Option target="safe_array_test_start"/>
+		</Unit>
+		<Unit filename="/home/artem/Desktop/Uni/algo-structs/14-hw-safe-array/src/subject.cpp">
+			<Option target="safe_array_main"/>
+			<Option target="safe_array_test_start"/>
+		</Unit>
+		<Unit filename="/home/artem/Desktop/Uni/algo-structs/14-hw-safe-array/src/subject.h">
+			<Option target="safe_array_main"/>
+			<Option target="safe_array_test_start"/>
+		</Unit>
+		<Unit filename="/home/artem/Desktop/Uni/algo-structs/14-hw-safe-array/tests/gtest/src/safearray_test.cpp">
+			<Option target="safe_array_test_start"/>
+		</Unit>
+		<Unit filename="/home/artem/Desktop/Uni/algo-structs/14-hw-safe-array/tests/gtest/src/subject_test.cpp">
+			<Option target="safe_array_test_start"/>
+		</Unit>
+		<Unit filename="/home/artem/Desktop/Uni/algo-structs/14-hw-safe-array/sol/cmake/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\"/>
+		</Unit>
+		<Unit filename="/home/artem/Desktop/Uni/algo-structs/14-hw-safe-array/sol/cmake/../../src/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\..\..\src\"/>
+		</Unit>
+		<Unit filename="/home/artem/Desktop/Uni/algo-structs/14-hw-safe-array/sol/cmake/../../tests/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\..\..\tests\"/>
+		</Unit>
+		<Unit filename="/home/artem/Desktop/Uni/algo-structs/14-hw-safe-array/sol/cmake/../../tests/gtest/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\..\..\tests\gtest\"/>
+		</Unit>
+		<Unit filename="/home/artem/Desktop/Uni/algo-structs/14-hw-safe-array/sol/cmake/../../tests/gtest/sol/cmake/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\..\..\tests\gtest\sol\cmake\"/>
+		</Unit>
+		<Unit filename="/home/artem/Desktop/Uni/algo-structs/14-hw-safe-array/sol/cmake/../../tests/gtest/sol/cmake/UserParams.cmake">
+			<Option virtualFolder="CMake Files\..\..\tests\gtest\sol\cmake\"/>
+		</Unit>
+		<Unit filename="/home/artem/Desktop/Uni/algo-structs/14-hw-safe-array/sol/cmake/../../tests/gtest/src/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\..\..\tests\gtest\src\"/>
+		</Unit>
+	</Project>
+</CodeBlocks_project_file>

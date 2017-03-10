@@ -1,0 +1,113 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.10"/>
+<title>«BrokenDNA» / Linked List / A&amp;DS HSE&#39;s Course: Документация: Doxygen</title>
+<link href="../../tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../jquery.js"></script>
+<script type="text/javascript" src="../../dynsections.js"></script>
+<link href="../../search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../search/searchdata.js"></script>
+<script type="text/javascript" src="../../search/search.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() { init_search(); });
+</script>
+<link href="../../doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">«BrokenDNA» / Linked List / A&amp;DS HSE&#39;s Course
+   &#160;<span id="projectnumber">0.2</span>
+   </div>
+   <div id="projectbrief">«BrokenDNA» / Linked List / A&amp;DS HSE&#39;s Course 2015–2017 © HSE&#39;s A&amp;DS Team &amp; Sergey Shershakov</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Создано системой Doxygen 1.8.10 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "../../search",false,'Поиск');
+</script>
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="../../index.html"><span>Титульная&#160;страница</span></a></li>
+      <li class="current"><a href="../../pages.html"><span>Описания</span></a></li>
+      <li><a href="../../namespaces.html"><span>Пространства&#160;имен</span></a></li>
+      <li><a href="../../annotated.html"><span>Классы</span></a></li>
+      <li><a href="../../files.html"><span>Файлы</span></a></li>
+      <li>
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="../../search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="Поиск" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="../../search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle">
+<div class="title">Документация: Doxygen </div>  </div>
+</div><!--header-->
+<div class="contents">
+<div class="textblock"><p>Каталог содержит файлы, необходимые для автоматического построения кодо-документации, основанной на разметке <a href="http://www.doxygen.org">Doxygen</a>.</p>
+<h2>Как просмотреть имеющуюся документацию?</h2>
+<p>Открыть в браузере файл <code>/out/html/index.html</code>.</p>
+<h2>Файлы</h2>
+<ul>
+<li><code>/out/html</code> — каталог назначения для генерируемой документации</li>
+<li><code>/Doxyfile</code> — основной файл проекта документации</li>
+<li><code>/Doxyfile.example</code> — пример файла проекта документации; <em>версионируется</em></li>
+<li><code>/doxyit.cmd</code> — командный файл автоматизации построения документации; <em>опциональный</em></li>
+<li><code>/doxyit.cmd.example</code> — пример файла <code>/doxyit.cmd</code>; <em>версионируется</em></li>
+</ul>
+<h2>User-specific настройки</h2>
+<h3>Файл <code>/Doxyfile</code></h3>
+<p>Минимально необходимо указать локальный путь к каталогу с исходными файлами, опция <code>INPUT</code>. По умолчанию задается относитлеьный путь <code>..\..\src</code> в структуре проекта, который должен работать хорошо, если запуск утилиты <code>doxygen.exe</code> осуществляется из каталога с файлом <code>Doxyfile</code>.</p>
+<h3>Файл <code>/doxyit.cmd</code></h3>
+<p>Простой батничек для запуска процедуры построения документации. Настраиваемые параметры:</p>
+<ul>
+<li>переменная окружения <code>GRAPHVIZPATH</code> — путь к каталогу с утилитой <a href="http://www.graphviz.org">GraphViz</a>, необходимой для построения графов зависимостей</li>
+<li>переменная окружения <code>DOXYRUN</code> — путь к утилите <code>doxygen.exe</code> </li>
+</ul>
+</div></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Документация по «BrokenDNA» / Linked List / A&amp;DS HSE&#39;s Course. Последние изменения: Пн 6 Фев 2017 03:40:37. Создано системой &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="../../doxygen.png" alt="doxygen"/>
+</a> 1.8.10
+</small></address>
+</body>
+</html>
