@@ -1,3 +1,5 @@
+// Абрамов Артем БПИ 151
+//
 #pragma warning (disable:4786)
 #pragma warning (disable:4503)
 
@@ -93,22 +95,11 @@ pair<int, int> RailSystem::calc_route(string from, string to) {
     // Mark initial city as known location
     cities[from]->total_fee = 0;
     cities[from]->total_distance = 0;
+    candidates.push(cities[from]);
 
-    // add all nodes to be examined
-    for (const auto&pair : cities) {
-        candidates.push(pair.second);
-    }
-
-    while (candidates.size() > 0) {
+    while (! candidates.empty()) {
         // find nearest city
         City* closest = candidates.top();
-        if (closest->total_distance == INT_MAX) {
-            // there is a disconnected subgraph, we can quit search
-            candidates.empty();
-            break;
-        }
-        // mark as visited, remove
-        cities[closest->name]->visited = true;
         candidates.pop();
         // if we found the city as "closest", we can quit search
         if (closest->name == to) {
@@ -128,11 +119,20 @@ pair<int, int> RailSystem::calc_route(string from, string to) {
                 neibour->total_distance = alt_dist;
                 // record previous node
                 neibour->from_city = closest->name;
+                // if node not already in queue, add it
+                if (! cities[neibour->name]->visited) {
+                    // mark as visited
+                    cities[neibour->name]->visited = true;
+                    candidates.push(neibour);
+                }
+                else {
+                    // decrease its priority
+                    std::make_heap(const_cast<City**>(&candidates.top()),
+                                    const_cast<City**>(&candidates.top()) + candidates.size(),
+                                    Cheapest());
+                }
             }
         }
-        std::make_heap(const_cast<City**>(&candidates.top()),
-                        const_cast<City**>(&candidates.top()) + candidates.size(),
-                        Cheapest());
     }
 
     // Return the total fee and total distance.
