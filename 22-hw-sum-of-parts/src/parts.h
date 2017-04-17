@@ -14,11 +14,11 @@ class Part  {
 public:
     std::string name;
 
-    // TODO: Finish declaration
+    std::map<const Part*, int> subparts;
 
     Part(const std::string& n) : name(n) {};
-    void describe();
-    int countHowMany(const Part* p);
+    void describe() const;
+    int countHowMany(const Part* p) const;
 };
 
 
