@@ -33,13 +33,20 @@ int Part::countHowMany(const Part* p) const
 
 Part* NameContainer::lookup(const string& name)
 {
-    if (_nameMap.count(name))
-        return _nameMap[name];
+    map<string,Part*>::iterator it = _nameMap.find(name);
+    if (it != _nameMap.end())
+        return it->second;
     else {
         _nameMap[name] = new Part(name);
         return _nameMap[name];
     }
 }
 
+void NameContainer::addPart(const string& part, int quantity, const string& subpart)
+{
+    Part* parent = lookup(part);
+    Part* child = lookup(subpart);
+    parent->subparts[child] = quantity;
+}
 
 

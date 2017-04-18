@@ -12,7 +12,7 @@ set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ../bin)
 
 add_executable(parts
 ../src/main.cpp
-../src/parts.h
+../src/parts.cpp
 )
 
 set_target_properties(parts PROPERTIES LINKER_LANGUAGE CXX)
@@ -20,7 +20,7 @@ set_target_properties(parts PROPERTIES LINKER_LANGUAGE CXX)
 set(gtest_LIB "gtest")
 set(gtest_main_LIB "gtest_main")
 set(gtest_INCLUDE_DIR "/usr/local/include/gtest")
-set(project_INCLUDE_DIR "/home/artem/Desktop/Uni/algo-structs/21-hw-list-with-skips/src")
+set(project_INCLUDE_DIR "/home/artem/Desktop/Uni/algo-structs/22-hw-sum-of-parts/src")
 include_directories(${project_INCLUDE_DIR})
 include_directories(${gtest_INCLUDE_DIR})
 
