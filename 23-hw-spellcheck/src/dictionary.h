@@ -1,3 +1,6 @@
+// Артем Абрамов БПИ151
+//
+
 #ifndef  _DICTIONARY_H_
 #define  _DICTIONARY_H_
 
@@ -16,13 +19,7 @@ class hash_function {
 public:
     hash_function() {}
 
-    unsigned int operator()(const std::string& s) const
-    {
-        // polynom hash function, write on email to ask about it
-        // crc32 q
-        std::size_t h1 = std::hash<std::string>{}(s);
-        return static_cast<unsigned int> (h1);
-    }
+    unsigned int operator()(const std::string& s) const;
 };
 
 class equality {
