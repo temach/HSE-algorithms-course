@@ -26,6 +26,7 @@ public:
 class NameContainer  {
 public:
     NameContainer() {};
+    ~NameContainer();
 
     void addPart(const std::string& part, int quantity, const std::string& subpart);
     Part* lookup(const std::string& name);
